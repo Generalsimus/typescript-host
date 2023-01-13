@@ -16,7 +16,7 @@ import { emitFileIfChanged } from "./emitFileIfChanged";
 
 
 export interface HostOptions {
-    options?: ts.CompilerOptions
+    compilerOptions?: ts.CompilerOptions
     tsConfigPath?: string
     transformers?: ts.CustomTransformers
 }
@@ -39,7 +39,7 @@ export class CustomCompilerHost {
     constructor(hostOptions: HostOptions, rootNames: string[] = []) {
         this.rootNames = rootNames
         this.defaultTsConfigPath = hostOptions.tsConfigPath
-        this.defaultCompilerOptions = hostOptions.options
+        this.defaultCompilerOptions = hostOptions.compilerOptions
         this.transformers = hostOptions.transformers
         this.tsConfigPath = this.getTsConfigFilePath()
         this.configFileOptions = this.getCompilerOptions()
