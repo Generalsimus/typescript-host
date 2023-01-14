@@ -15,21 +15,22 @@ import { getTsConfigFilePath } from "./getConfigFilePath";
 import { emitFileIfChanged } from "./emitFileIfChanged";
 import { getOptimizedRootNames } from "./optimizeRootNames";
 
-type ExtensionName = string;
-type CustomExtensions = Partial<Record<ExtensionName, {
+export { ts }
+export type ExtensionName = string;
+export type CustomExtensions = Partial<Record<ExtensionName, {
     extension: ts.Extension;
     scriptKind: ts.ScriptKind;
 }>>;
-const Extension = ts.Extension;
-const ScriptKind = ts.ScriptKind;
-interface HostOptions {
+export const Extension = ts.Extension;
+export const ScriptKind = ts.ScriptKind;
+export interface HostOptions {
     compilerOptions?: ts.CompilerOptions;
     tsConfigPath?: string;
     transformers?: ts.CustomTransformers;
     extensionsSupport?: CustomExtensions;
 }
 
-class CustomCompilerHost {
+export class CustomCompilerHost {
     fileCache = new Map<
         string,
         {
@@ -87,13 +88,3 @@ class CustomCompilerHost {
     emitFileCode = emitFileCode;
     createProgram = createProgram;
 }
-
-export {
-    ts,
-    ScriptKind,
-    Extension,
-    ExtensionName,
-    CustomExtensions,
-    HostOptions,
-    CustomCompilerHost,
-};
