@@ -11,7 +11,8 @@ export function getCompilerOptions(this: CustomCompilerHost): ts.ParsedCommandLi
         this.getCurrentDirectory()
     )
 
-
+    // compilerOptions.
+    // console.log("🚀 --> file: getCompilerOptions.ts:25 --> getCompilerOptions --> compilerOptions", compilerOptions);
     const errors: ts.Diagnostic[] = [...compilerOptions.errors]
     if (configFile.error) {
         errors.push(configFile.error)

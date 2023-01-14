@@ -1,5 +1,4 @@
 import { CustomCompilerHost } from "./";
-
 export function getCacheFileDetails(this: CustomCompilerHost, fileName: string) {
     let fileDetail = this.fileCache.get(fileName)
     if (fileDetail === undefined) {
@@ -7,7 +6,7 @@ export function getCacheFileDetails(this: CustomCompilerHost, fileName: string) 
             sourceFile: undefined,
             code: undefined,
             modules: undefined,
-            emitFileValue: undefined
+            emitFileValue: undefined,
         })
     }
     return fileDetail
