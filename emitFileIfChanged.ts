@@ -6,7 +6,7 @@ export function emitFileIfChanged(this: CustomCompilerHost, fileName: string, co
 
     if (currentValue?.emitFileValue !== undefined) {
         const preCode = currentValue.code;
-        currentValue.sourceFile = (currentValue.code = undefined);
+        currentValue.sourceFile = (currentValue.modules = (currentValue.code = undefined));
         const newCode = code || (code = this.readFile(fileName));
         if (preCode == newCode) {
             return currentValue.emitFileValue

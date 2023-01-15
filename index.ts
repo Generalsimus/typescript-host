@@ -36,7 +36,7 @@ export class CustomCompilerHost {
         {
             sourceFile: ts.SourceFile | undefined;
             code: string | undefined;
-            modules: (ts.ResolvedModule | undefined)[] | undefined;
+            modules: Record<string, ts.ResolvedModule | undefined> | undefined;
             emitFileValue: EmitFileValueType | undefined;
         }
     >();
